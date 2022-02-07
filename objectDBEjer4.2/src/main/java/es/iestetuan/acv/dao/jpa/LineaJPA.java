@@ -7,8 +7,9 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
-import es.iestetuan.acv.dao.vo.Linea;
 import es.iestetuan.acv.dao.IBaseDeDatos;
+import es.iestetuan.acv.dao.vo.Linea;
+import es.iestetuan.acv.procesamiento.LineaDTO;
 import es.iestetuan.acv.utilidades.GestorEntityManagerJPA;
 
 public class LineaJPA implements IBaseDeDatos<Linea> {
@@ -121,7 +122,4 @@ public class LineaJPA implements IBaseDeDatos<Linea> {
 		}
 		return listaLineas;
 	}
-
-
-
 }

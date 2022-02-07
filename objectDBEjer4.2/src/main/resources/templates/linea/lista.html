@@ -1,0 +1,36 @@
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <title>Listar Lineas</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+	</head>
+	<body>
+		<h1>Mostrando la lista de lineas</h1>
+
+		<div th:switch="${lineasDTO}">
+		    <h2 th:case="null">No hay lineas</h2>
+		    <div th:case="*">
+		            <h2>Lineas</h2>
+		            <table>
+		                <thead>
+		                    <tr>
+		                        <th>Nombre Corto</th>
+		                        <th>Nombre largo</th>
+		                        <th>Color</th>
+		                        <th>Kilómetros</th>
+		                        <th>URL Imagen</th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+						<tr th:each="lineaDTO: ${lineasDTO}">
+		                    <td th:text="${lineaDTO.nombreCorto}"></td>
+		                    <td style="text-align:center;" th:text="${lineaDTO.nombreLargo}"></td>
+		                    <td style="text-align:center;" th:text="${lineaDTO.colorDTO}"/>
+		                    <td style="text-align:center;" th:text="${lineaDTO.kilometros}"/>
+		                    <td th:text="${lineaDTO.url}"/>
+		                </tr>
+		            </tbody>
+		        </table>
+		    </div>      
+		</div>
+	</body>
+</html>

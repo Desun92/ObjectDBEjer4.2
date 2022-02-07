@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
@@ -19,21 +20,22 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JacksonXmlRootElement(localName="color")
+//@JacksonXmlRootElement(localName="color")
+@JsonRootName(value="color")
 public class Color {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="cod_color")
-	@JacksonXmlProperty(isAttribute=true, localName="cod_color")
+	//@JacksonXmlProperty(isAttribute=true, localName="cod_color")
 	private int codigoColor;
 	
 	@Column(name="cod_hexadecimal")
-	@JacksonXmlProperty(localName="cod_hexadecimal")
+	//@JacksonXmlProperty(localName="cod_hexadecimal")
 	private String codigoHexadecimal;
 	
 	@Column(name="nombre")
-	@JacksonXmlProperty(localName="nombre")
+	//@JacksonXmlProperty(localName="nombre")
 	private String nombre;
 	
 	public int getCodigoColor() {
