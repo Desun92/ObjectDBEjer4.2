@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.iestetuan.acv.dao.jpa.ColorJPA;
@@ -30,5 +31,13 @@ public class ColorRestController {
 		
 		return listaColoresDTO;
 	}
-
+	
+	@GetMapping(path="/rest/colores/{codigoColor}", produces={"application/json"})
+	public Color getColor(@PathVariable int codigoColor) {
+		
+		ColorJPA operacionColor = new ColorJPA();
+		Color color = operacionColor.consultarPorID(codigoColor, Color.class);
+		return color;
+		
+	}
 }

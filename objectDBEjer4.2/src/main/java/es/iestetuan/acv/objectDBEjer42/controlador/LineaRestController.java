@@ -5,9 +5,12 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.iestetuan.acv.dao.jpa.ColorJPA;
 import es.iestetuan.acv.dao.jpa.LineaJPA;
+import es.iestetuan.acv.dao.vo.Color;
 import es.iestetuan.acv.dao.vo.Linea;
 import es.iestetuan.acv.procesamiento.ColorDTO;
 import es.iestetuan.acv.procesamiento.LineaDTO;
@@ -33,6 +36,14 @@ public class LineaRestController {
 			listaLineasDTO.add(lineaDTO);
 		}
 		return listaLineasDTO;
+	}
+	
+	@GetMapping(path="/rest/linea/{codigoLinea}", produces={"application/json"})
+	public Linea getColor(@PathVariable int codigoLinea) {
+		
+		LineaJPA operacionLinea = new LineaJPA();
+		Linea linea = operacionLinea.consultarPorID(codigoLinea, Linea.class);
+		return linea;
 	}
 
 }
