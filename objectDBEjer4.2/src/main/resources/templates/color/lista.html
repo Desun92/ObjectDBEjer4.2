@@ -14,14 +14,14 @@
 		                <thead>
 		                    <tr>
 		                        <th>Nombre</th>
-		                        <th>Código Hexadecimal</th>
+		                        <th>Color</th>
 		                        <th>Código Color</th>
 		                    </tr>
 		                </thead>
 		                <tbody>
 						<tr th:each="colorDTO: ${colores}">
-		                    <td style="text-align:center;" th:text="${colorDTO.nombre}"></td>
-		                    <td style="text-align:center;" th:text="${colorDTO.codigoHexadecimal}"></td>
+		                    <td style="text-align:center;" th:text="${colorDTO.nombre}"/>
+		                    <td th:style="'background: ' + ${colorDTO.codigoHexadecimal}"/>
 		                    <td style="text-align:center;" th:text="${colorDTO.codigoColor}"/>
 		                </tr>
 		            </tbody>
